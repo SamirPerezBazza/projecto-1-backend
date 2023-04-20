@@ -1,18 +1,18 @@
-import { createUser, deleteUser, getUser, getUserCount ,patchUser } from "./user.controller";
-import {Router} from 'express';
+import { createUser, deleteUser, getUser, getUserCount, patchUser } from './user.controller';
+import { Router } from 'express';
 const router = Router();
 
 // Endpoint GET /prueba
-router.get('/', getUser );
-router.get('/count', getUserCount );
+router.get('/count', getUserCount);
+router.get('/:id', getUser);
 
 // Endpoint POST /prueba
-router.post('/', createUser );
+router.post('/', createUser);
 
 // Endpoint PATCH /prueba
-router.patch('/', patchUser );
+router.patch('/', patchUser);
 
 // Endpoint DELETE /prueba
-router.delete('/', deleteUser );
+router.delete('/', deleteUser);
 
 export default router;

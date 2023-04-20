@@ -4,23 +4,23 @@ const userSchema = mongoose.Schema(
   {
     email: {
       type: String,
-      required: true
+      required: true,
     },
-    celular: {
+    phone: {
       type: String,
       required: true,
     },
-    contraseña: {
+    password: {
       type: String,
       required: true,
     },
-    direccion: {
-      type: String
+    address: {
+      type: String,
     },
     type: {
       type: String,
     },
-    
+
     // campos
     name: { type: String, required: [true, 'Nombra tu user'] },
     enable: { type: Boolean, default: true },
