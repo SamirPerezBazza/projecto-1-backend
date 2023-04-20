@@ -1,23 +1,22 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import { config } from 'dotenv';
+
+import userRoutes from './users/user.routes';
+import restaurantRoutes from './restaurants/restaurant.routes';
+
+config();
 
 // Creacion del app
 const app = express();
 
 // Conexión a MongoDB usando mongoose
 mongoose
-  .connect(
-    'mongodb+srv://' +
-      process.env.MONGO_USER +
-      ':' +
-      process.env.MONGO_PASS +
-      '@cluster0.j7xqxtl.mongodb.net/dllo-backend-2023-10',
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGO_URL || '', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log('Connected.');
   })
@@ -30,10 +29,8 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-import empanadaRoutes from './empanada/empanada.routes'
-import userRoutes from './empanada/user.routes'
-app.use('/empanada', empanadaRoutes)
-app.use('/users', userRoutes)
+app.use('/users', userRoutes);
+app.use('/restaurants', restaurantRoutes);
 
 // Endpoint para 404
 app.use((req, res) => {
