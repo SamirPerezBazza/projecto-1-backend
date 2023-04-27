@@ -1,19 +1,24 @@
-import { createProduct, getProducts, getProduct, deleteProduct, updateProduct } from "./products.controller";
-import {Router} from 'express';
+import {
+  createProduct,
+  getProducts,
+  getProduct,
+  deleteProduct,
+  updateProduct,
+} from './products.controller';
+import { Router } from 'express';
 const router = Router();
 
 // Endpoint GET /prueba
-router.get('/getProduct/:id', getProduct );
-router.get('/getResturants/:ids', getProducts );
+router.get('/', getProducts);
+router.get('/:id', getProduct); // Read unidad
 
 // Endpoint POST /prueba
-router.post('/createProduct', createProduct );
-
+router.post('/', createProduct); // create
 
 // Endpoint PATCH /prueba
-router.put('/updateProduct', updateProduct );
+router.put('/', updateProduct); // update
 
 // Endpoint DELETE /prueba
-router.delete('/deleteProduct/:id', deleteProduct );
+router.delete('/:id', deleteProduct); // delete
 
 export default router;
