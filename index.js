@@ -5,6 +5,8 @@ import { config } from 'dotenv';
 
 import userRoutes from './users/user.routes';
 import restaurantRoutes from './restaurants/restaurant.routes';
+import orderRoutes from './orders/orders.routes';
+import productRoutes from './products/products.routes';
 
 config();
 
@@ -31,6 +33,8 @@ app.use(express.json());
 
 app.use('/users', userRoutes);
 app.use('/restaurants', restaurantRoutes);
+app.use('/products', productRoutes);
+app.use('/orders', orderRoutes);
 
 // Endpoint para 404
 app.use((req, res) => {

@@ -1,19 +1,24 @@
-import { createOrder, getOrders, getOrder, deleteOrder, updateOrder } from "./orders.controller";
-import {Router} from 'express';
+import {
+  createOrder,
+  getOrders,
+  getOrder,
+  disableProducts,
+  updateOrder,
+} from './orders.controller';
+import { Router } from 'express';
 const router = Router();
 
-// Endpoint GET /prueba
-router.get('/getOrder/:id', getOrder );
-router.get('/getResturants/:ids', getOrders );
+// Endpoint GET /prueba ??? req.qyuery req.params
+router.get('/', getOrders);
+router.get('/:id', getOrder);
 
 // Endpoint POST /prueba
-router.post('/createOrder', createOrder );
-
+router.post('/', createOrder);
 
 // Endpoint PATCH /prueba
-router.put('/updateOrder', updateOrder );
+router.put('/', updateOrder);
 
 // Endpoint DELETE /prueba
-router.delete('/deleteOrder/:id', deleteOrder );
+router.delete('/:id', disableProducts);
 
 export default router;
