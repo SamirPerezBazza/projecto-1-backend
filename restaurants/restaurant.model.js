@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+import { Types } from 'mongoose';
 
 const restaurantSchema = mongoose.Schema(
   {
